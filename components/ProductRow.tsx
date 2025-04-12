@@ -1,4 +1,5 @@
 import React from 'react';
+import Pill from "@/components/UI/Pill";
 
 type Row = {
   id: number;
@@ -27,12 +28,8 @@ const ProductRow: React.FC<ProductRowProps> = ({
   onDelete
 }) => {
   return (
-    <tr
-      className={`border rounded-xl ${
-        row.status === 'Eliminated' ? 'bg-gray-200 text-gray-500 italic' : ''
-      }`}
-    >
-      <td className="pl-4 py-4 border-lightGray border-l-2 border-y-2 rounded-l-xl">
+    <tr>
+      <td className={`pl-4 py-4 border-lightGray border-l-2 border-y-2 rounded-l-2xl ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
         {row.isEditing && row.status !== 'Eliminated' ? (
           <input
             type="text"
@@ -51,11 +48,13 @@ const ProductRow: React.FC<ProductRowProps> = ({
           </>
         )}
       </td>
-      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.status}</td>
-      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.properties}</td>
-      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.lastPropertyEntry}</td>
-      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.price}</td>
-      <td className="py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-xl">
+      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">
+        <Pill status={row.status} />
+      </td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.properties}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.lastPropertyEntry}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-active-text ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.price}</td>
+      <td className={`py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-2xl ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
         {row.status !== 'Eliminated' && (
           <>
             <button

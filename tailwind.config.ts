@@ -17,6 +17,14 @@ export default {
         gray: '#979ba4',
         darkGray: '#6c7280',
         primary: '#4b5566',
+        active: {
+          bg: '#ebfff9',
+          text: '#06714e',
+        },
+        eliminated: {
+          bg: '#faeceb',
+          text: '#ab1818',
+        },
       },
     },
   },
