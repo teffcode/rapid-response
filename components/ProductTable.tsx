@@ -4,13 +4,17 @@ import ProductRow from './ProductRow';
 type Row = {
   id: number;
   name: string;
+  lastDeploy: string;
   status: 'Active' | 'Eliminated';
+  properties: number;
+  lastPropertyEntry: string;
+  price: string;
   isEditing: boolean;
 };
 
 const initialRows: Row[] = [
-  { id: 1, name: 'Item One', status: 'Active', isEditing: false },
-  { id: 2, name: 'Item Two', status: 'Active', isEditing: false },
+  { id: 1, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
+  { id: 2, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
 ];
 
 const ProductTable: React.FC = () => {
@@ -56,19 +60,19 @@ const ProductTable: React.FC = () => {
 
   return (
     <div className="p-6 w-full">
-      <div className="flex justify-between w-full">
-        <h1 className="text-xl font-semibold mb-4">Rapid Response</h1>
+      <div className="flex justify-between mb-6 w-full">
+        <h1 className="text-xl font-semibold text-primary">Rapid Response</h1>
 
         <div className="flex gap-6">
           <button
-            className="mb-4 px-4 py-1 border rounded bg-white text-gray text-sm rounded"
+            className="px-4 py-1 border rounded bg-white text-gray text-sm rounded"
             onClick={() => setModalOpen(true)}
           >
             Signatures and templates
           </button>
 
           <button
-            className="mb-4 px-4 py-1 bg-blue-600 text-white text-sm rounded"
+            className="px-4 py-1 bg-blue-600 text-white text-sm rounded"
             onClick={() => setModalOpen(true)}
           >
             + New Rapid Response
@@ -77,20 +81,24 @@ const ProductTable: React.FC = () => {
       </div>
 
       <div className="w-full border border-light rounded-xl bg-white p-6">
-        <div className="flex justify-between">
-          <h2>Status</h2>
+        <div className="flex justify-between mb-4">
+          <h2 className="text-lg font-semibold text-primary">Status</h2>
           <input
             type="text"
+            className="border border-gray px-4 rounded-sm"
             placeholder="Search Rapid Response"
           />
         </div>
 
-        <table className="w-full bg-white">
+        <table className="w-full bg-white border-separate border-spacing-y-4">
           <thead>
             <tr className="bg-gray-100">
-              <th className="p-2 text-left">Name</th>
-              <th className="p-2 text-left">Status</th>
-              <th className="p-2">Actions</th>
+              <th className="text-sm text-gray text-left font-normal pl-4 pb-4">Name</th>
+              <th className="text-sm text-gray text-left font-normal pb-4">Status</th>
+              <th className="text-sm text-gray text-left font-normal pb-4">Properties</th>
+              <th className="text-sm text-gray text-left font-normal pb-4">Last property entry</th>
+              <th className="text-sm text-gray text-left font-normal pb-4">Price</th>
+              <th className="text-sm text-left font-normal text-white pb-4">Actions</th>
             </tr>
           </thead>
           <tbody>

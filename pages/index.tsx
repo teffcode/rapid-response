@@ -3,7 +3,7 @@ import ProductTable from "../components/ProductTable";
 export default function Home() {
   return (
     <main className="flex h-screen">
-    <aside className="w-64 bg-light text-white p-6 flex flex-col">
+    <aside className="w-64 bg-light text-white p-6 flex flex-col border-r border-borderGray">
       <h2 className="text-lg font-semibold text-gray mb-6">8020REI</h2>
       <nav className="flex flex-col gap-6">
         <a href="#" className="text-gray opacity-50">Dashboard</a>
@@ -19,7 +19,7 @@ export default function Home() {
     </aside>
 
     <div className="flex-1 flex flex-col">
-      <header className="bg-light px-6 py-8 shadow-sm opacity-50" />
+      <header className="bg-light px-6 py-8 shadow-sm border-b border-borderGray" />
 
       <section className="flex-1 overflow-y-auto bg-lightGray">
         <ProductTable />

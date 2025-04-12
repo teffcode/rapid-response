@@ -3,7 +3,11 @@ import React from 'react';
 type Row = {
   id: number;
   name: string;
+  lastDeploy: string;
   status: 'Active' | 'Eliminated';
+  properties: number;
+  lastPropertyEntry: string;
+  price: string;
   isEditing: boolean;
 };
 
@@ -24,11 +28,11 @@ const ProductRow: React.FC<ProductRowProps> = ({
 }) => {
   return (
     <tr
-      className={`border-t ${
+      className={`border rounded-xl ${
         row.status === 'Eliminated' ? 'bg-gray-200 text-gray-500 italic' : ''
       }`}
     >
-      <td className="p-2">
+      <td className="pl-4 py-4 border-lightGray border-l-2 border-y-2 rounded-l-xl">
         {row.isEditing && row.status !== 'Eliminated' ? (
           <input
             type="text"
@@ -41,24 +45,30 @@ const ProductRow: React.FC<ProductRowProps> = ({
             autoFocus
           />
         ) : (
-          row.name
+          <>
+            <p className="font-semibold text-sm text-darkGray mb-1">{row.name}</p>
+            <p className="font-regular text-xs text-gray">Last deploy {row.lastDeploy}</p>
+          </>
         )}
       </td>
-      <td className="p-2">{row.status}</td>
-      <td className="p-2 text-center space-x-2">
+      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.status}</td>
+      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.properties}</td>
+      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.lastPropertyEntry}</td>
+      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">{row.price}</td>
+      <td className="py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-xl">
         {row.status !== 'Eliminated' && (
           <>
-            <button
-              className="text-blue-600 underline"
-              onClick={() => (row.isEditing ? onSave(row.id) : onEditToggle(row.id))}
-            >
-              {row.isEditing ? 'Save Name' : 'Edit Name'}
-            </button>
             <button
               className="text-red-600 underline"
               onClick={() => onDelete(row.id)}
             >
               Delete
+            </button>
+            <button
+              className="text-blue-600 underline"
+              onClick={() => (row.isEditing ? onSave(row.id) : onEditToggle(row.id))}
+            >
+              {row.isEditing ? 'Save Name' : 'Edit Name'}
             </button>
           </>
         )}
