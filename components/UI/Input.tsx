@@ -1,5 +1,5 @@
-import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import React from "react";
+import { LucideIcon } from "lucide-react";
 
 interface InputProps {
   icon?: LucideIcon;
@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
   disabled = false,
-  widthClass = 'w-full max-w-sm',
+  widthClass = "w-full max-w-sm",
 }) => {
   return (
     <div className={`flex items-center border border-gray rounded-md px-3 py-2 ${widthClass}`}>
@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={`outline-none w-full text-sm placeholder-gray-400 ${Icon ? 'ml-2' : ''}`}
+        className={`outline-none w-full text-sm placeholder-gray-400 ${Icon ? "ml-2" : ""}`}
         disabled={disabled}
       />
     </div>

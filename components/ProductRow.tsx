@@ -1,5 +1,5 @@
-import React from 'react';
-import { Trash, Pencil } from 'lucide-react';
+import React from "react";
+import { Trash, Pencil } from "lucide-react";
 import Pill from "@/components/UI/Pill";
 import Button from "@/components/UI/Button";
 import { Row } from "@/types/rapidResponse";
@@ -21,15 +21,15 @@ const ProductRow: React.FC<ProductRowProps> = ({
 }) => {
   return (
     <tr>
-      <td className={`px-4 border-lightGray border-l-2 border-y-2 rounded-l-2xl h-[76px] w-[250px] ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
-        {row.isEditing && row.status !== 'Eliminated' ? (
+      <td className={`px-4 border-lightGray border-l-2 border-y-2 rounded-l-2xl h-[76px] w-[250px] ${row.status === "Eliminated" ? "opacity-70" : ""}`}>
+        {row.isEditing && row.status !== "Eliminated" ? (
           <input
             type="text"
             className="w-full text-sm"
             value={row.name}
             onChange={(e) => onNameChange(row.id, e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter') onSave(row.id);
+              if (e.key === "Enter") onSave(row.id);
             }}
             autoFocus
           />
@@ -41,11 +41,11 @@ const ProductRow: React.FC<ProductRowProps> = ({
       <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px]">
         <Pill status={row.status} />
       </td>
-      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px] ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.properties}</td>
-      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px] ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.lastPropertyEntry}</td>
-      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm w-[200px] ${row.status === 'Eliminated' ? 'opacity-70 text-darkGray' : 'text-active-text'}`}>{row.price}</td>
-      <td className={`py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-2xl ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
-        {row.status !== 'Eliminated' && (
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px] ${row.status === "Eliminated" ? "opacity-70" : ""}`}>{row.properties}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px] ${row.status === "Eliminated" ? "opacity-70" : ""}`}>{row.lastPropertyEntry}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm w-[200px] ${row.status === "Eliminated" ? "opacity-70 text-darkGray" : "text-active-text"}`}>{row.price}</td>
+      <td className={`py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-2xl ${row.status === "Eliminated" ? "opacity-70" : ""}`}>
+        {row.status !== "Eliminated" && (
           <>
             <Button
               variant="secondary"
@@ -57,7 +57,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
             <Button
               variant="secondary"
               icon={Pencil}
-              text={row.isEditing ? 'Save name' : 'Edit name'}
+              text={row.isEditing ? "Save name" : "Edit name"}
               size="sm"
               onClick={() => (row.isEditing ? onSave(row.id) : onEditToggle(row.id))}
             />

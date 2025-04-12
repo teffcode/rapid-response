@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { PencilRuler, Plus, Search } from 'lucide-react';
-import ProductRow from './ProductRow';
+import React, { useState } from "react";
+import { PencilRuler, Plus, Search } from "lucide-react";
+import ProductRow from "./ProductRow";
 import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
 import Modal from "@/components/UI/Modal";
-import { initialRows } from '@/data/rapidResponseRows';
+import { initialRows } from "@/data/rapidResponseRows";
 import { Row } from "@/types/rapidResponse";
 
 const ProductTable: React.FC = () => {
@@ -38,14 +38,14 @@ const ProductTable: React.FC = () => {
   const handleDelete = (id: number) => {
     setRows(rows =>
       rows.map(row =>
-        row.id === id ? { ...row, status: 'Eliminated' } : row
+        row.id === id ? { ...row, status: "Eliminated" } : row
       )
     );
   };
 
   const sortedRows = [...rows].sort((a, b) => {
     if (a.status === b.status) return 0;
-    return a.status === 'Eliminated' ? 1 : -1;
+    return a.status === "Eliminated" ? 1 : -1;
   });
 
   return (

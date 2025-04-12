@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   FileChartColumn,
   Box,
@@ -9,12 +9,12 @@ import {
   Merge,
   Wrench,
   CreditCard,
-} from 'lucide-react';
+} from "lucide-react";
 
 const Aside: React.FC = () => {
   return (
     <aside className="w-64 bg-light text-white p-6 flex flex-col border-r border-borderGray">
-      <h2 className="text-lg font-semibold text-gray mb-6">8020REI</h2>
+      <h2 className="text-lg font-semibold text-gray mb-6">Company</h2>
       <nav className="flex flex-col gap-6">
         <a href="#" className="flex items-center gap-3 text-gray opacity-50">
           <FileChartColumn size={20} /> Dashboard

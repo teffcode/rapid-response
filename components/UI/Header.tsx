@@ -1,6 +1,6 @@
-import React from 'react';
-import { Calendar, Plus, Bell, Smile } from 'lucide-react';
-import Input from './Input';
+import React from "react";
+import { Calendar, Plus, Bell, Smile } from "lucide-react";
+import Input from "./Input";
 
 const Header: React.FC = () => {
   return (
