@@ -1,5 +1,7 @@
 import React from 'react';
+import { Trash, Pencil } from 'lucide-react';
 import Pill from "@/components/UI/Pill";
+import Button from "@/components/UI/Button";
 
 type Row = {
   id: number;
@@ -57,18 +59,20 @@ const ProductRow: React.FC<ProductRowProps> = ({
       <td className={`py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-2xl ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
         {row.status !== 'Eliminated' && (
           <>
-            <button
-              className="text-red-600 underline"
+            <Button
+              variant="secondary"
+              icon={Trash}
+              size="sm"
               onClick={() => onDelete(row.id)}
-            >
-              Delete
-            </button>
-            <button
-              className="text-blue-600 underline"
+            />
+
+            <Button
+              variant="secondary"
+              icon={Pencil}
+              text={row.isEditing ? 'Save name' : 'Edit name'}
+              size="sm"
               onClick={() => (row.isEditing ? onSave(row.id) : onEditToggle(row.id))}
-            >
-              {row.isEditing ? 'Save Name' : 'Edit Name'}
-            </button>
+            />
           </>
         )}
       </td>

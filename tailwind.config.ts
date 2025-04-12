@@ -17,6 +17,7 @@ export default {
         gray: '#979ba4',
         darkGray: '#6c7280',
         primary: '#4b5566',
+        secondary: '#13275f',
         active: {
           bg: '#ebfff9',
           text: '#06714e',

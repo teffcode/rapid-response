@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { PencilRuler, Plus } from 'lucide-react';
 import ProductRow from './ProductRow';
+import Button from "@/components/UI/Button";
 
 type Row = {
   id: number;
@@ -68,19 +70,18 @@ const ProductTable: React.FC = () => {
         <h1 className="text-xl font-semibold text-primary">Rapid Response</h1>
 
         <div className="flex gap-6">
-          <button
-            className="px-4 py-1 border rounded bg-white text-gray text-sm rounded"
-            onClick={() => setModalOpen(true)}
-          >
-            Signatures and templates
-          </button>
+          <Button
+            variant="secondary"
+            text="Signatures and templates"
+            icon={PencilRuler}
+          />
 
-          <button
-            className="px-4 py-1 bg-blue-600 text-white text-sm rounded"
+          <Button
+            variant="primary"
+            text="New Rapid Response"
+            icon={Plus}
             onClick={() => setModalOpen(true)}
-          >
-            + New Rapid Response
-          </button>
+          />
         </div>
       </div>
 
