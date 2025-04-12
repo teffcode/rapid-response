@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { PencilRuler, Plus } from 'lucide-react';
+import { PencilRuler, Plus, Search } from 'lucide-react';
 import ProductRow from './ProductRow';
+import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
 
 type Row = {
@@ -86,13 +87,9 @@ const ProductTable: React.FC = () => {
       </div>
 
       <div className="w-full border border-light rounded-xl bg-white p-6">
-        <div className="flex justify-between mb-4">
+        <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-primary">Status</h2>
-          <input
-            type="text"
-            className="border border-gray px-4 rounded-sm"
-            placeholder="Search Rapid Response"
-          />
+          <Input icon={Search} placeholder="Search Rapid Response" />
         </div>
 
         <table className="w-full bg-white border-separate border-spacing-y-4">

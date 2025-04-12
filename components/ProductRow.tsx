@@ -31,31 +31,29 @@ const ProductRow: React.FC<ProductRowProps> = ({
 }) => {
   return (
     <tr>
-      <td className={`pl-4 py-4 border-lightGray border-l-2 border-y-2 rounded-l-2xl ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
+      <td className={`px-4 border-lightGray border-l-2 border-y-2 rounded-l-2xl h-[76px] w-[250px] ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
         {row.isEditing && row.status !== 'Eliminated' ? (
           <input
             type="text"
+            className="w-full text-sm"
             value={row.name}
             onChange={(e) => onNameChange(row.id, e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter') onSave(row.id);
             }}
-            className="border p-1 w-full"
             autoFocus
           />
         ) : (
-          <>
-            <p className="font-semibold text-sm text-darkGray mb-1">{row.name}</p>
-            <p className="font-regular text-xs text-gray">Last deploy {row.lastDeploy}</p>
-          </>
+          <p className="font-semibold text-sm text-darkGray mb-1">{row.name}</p>
         )}
+        <p className="font-regular text-xs text-gray">Last deploy {row.lastDeploy}</p>
       </td>
-      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray">
+      <td className="py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px]">
         <Pill status={row.status} />
       </td>
-      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.properties}</td>
-      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.lastPropertyEntry}</td>
-      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-active-text ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.price}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px] ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.properties}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm text-darkGray w-[200px] ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>{row.lastPropertyEntry}</td>
+      <td className={`py-4 border-lightGray border-y-2 font-semibold text-sm w-[200px] ${row.status === 'Eliminated' ? 'opacity-70 text-darkGray' : 'text-active-text'}`}>{row.price}</td>
       <td className={`py-4 pr-4 text-right space-x-2 border-lightGray border-r-2 border-y-2 rounded-r-2xl ${row.status === 'Eliminated' ? 'opacity-70' : ''}`}>
         {row.status !== 'Eliminated' && (
           <>
