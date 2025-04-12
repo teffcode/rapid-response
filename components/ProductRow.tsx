@@ -2,17 +2,7 @@ import React from 'react';
 import { Trash, Pencil } from 'lucide-react';
 import Pill from "@/components/UI/Pill";
 import Button from "@/components/UI/Button";
-
-type Row = {
-  id: number;
-  name: string;
-  lastDeploy: string;
-  status: 'Active' | 'Eliminated';
-  properties: number;
-  lastPropertyEntry: string;
-  price: string;
-  isEditing: boolean;
-};
+import { Row } from "@/types/rapidResponse";
 
 type ProductRowProps = {
   row: Row;

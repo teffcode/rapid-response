@@ -4,26 +4,8 @@ import ProductRow from './ProductRow';
 import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
 import Modal from "@/components/UI/Modal";
-
-type Row = {
-  id: number;
-  name: string;
-  lastDeploy: string;
-  status: 'Active' | 'Eliminated';
-  properties: number;
-  lastPropertyEntry: string;
-  price: string;
-  isEditing: boolean;
-};
-
-const initialRows: Row[] = [
-  { id: 1, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
-  { id: 2, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
-  { id: 3, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
-  { id: 4, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
-  { id: 5, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
-  { id: 6, name: 'RapidR_name 01', lastDeploy: "01-15-2024", status: 'Active', properties: 50, lastPropertyEntry: "01-15-2024", price: "$20.0", isEditing: false },
-];
+import { initialRows } from '@/data/rapidResponseRows';
+import { Row } from "@/types/rapidResponse";
 
 const ProductTable: React.FC = () => {
   const [rows, setRows] = useState<Row[]>(initialRows);
@@ -68,7 +50,7 @@ const ProductTable: React.FC = () => {
 
   return (
     <div className="p-6 w-full">
-      <div className="flex justify-between mb-6 w-full">
+      <div className="flex justify-between items-center mb-6 w-full">
         <h1 className="text-xl font-semibold text-primary">Rapid Response</h1>
 
         <div className="flex gap-6">
