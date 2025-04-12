@@ -1,4 +1,4 @@
-import ProductTable from "@/components/ProductTable";
+import ProductTable from "@/components/ProductTable/ProductTable";
 import Header from "@/components/UI/Header";
 import Aside from "@/components/UI/Aside";
 

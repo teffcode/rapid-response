@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PencilRuler, Plus, Search } from "lucide-react";
-import ProductRow from "./ProductRow";
+import ProductRow from "../ProductRow/ProductRow";
 import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
 import Modal from "@/components/UI/Modal";
