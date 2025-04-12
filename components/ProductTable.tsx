@@ -3,6 +3,7 @@ import { PencilRuler, Plus, Search } from 'lucide-react';
 import ProductRow from './ProductRow';
 import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
+import Modal from "@/components/UI/Modal";
 
 type Row = {
   id: number;
@@ -118,20 +119,11 @@ const ProductTable: React.FC = () => {
         </table>
       </div>
 
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-10">
-          <div className="bg-white p-6 rounded shadow-md max-w-md w-full relative">
-            <button
-              className="absolute top-2 right-2 text-gray-600 text-lg"
-              onClick={() => setModalOpen(false)}
-            >
-              ×
-            </button>
-            <h2 className="text-lg font-semibold mb-4">New Rapid Response</h2>
-            <p>This is the second screen modal content.</p>
-          </div>
-        </div>
-      )}
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onConfirm={() => setModalOpen(false)}
+      />
     </div>
   );
 };
